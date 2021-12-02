@@ -1,14 +1,13 @@
 var timerEl = document.getElementById('countdown');
-var container = document.querySelector(".container");
+var getStarted = document.querySelector(".getStarted")
 
-document.getElementById("timerOn").hidden = false; // Setting initial visibility values for the quiz blocks
-document.getElementById("timerOff").hidden = true;
+var timerOn = document.getElementById("timerOn").hidden = false; // Setting initial visibility values for the quiz blocks
+var timerOff = document.getElementById("timerOff").hidden = true;
 
+console.log("hello")
 
 function countdown() {
   var timeLeft = 2;
-
-
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
@@ -26,8 +25,11 @@ function countdown() {
 
       // Important  this is where the time out messag for the quiz !!
       clearInterval(timeInterval);
-      document.getElementById("timerOff").hidden = false;  //THIS TURNS OFF THE WHOLE QUIZ 
-      document.getElementById("timerOn").hidden = true;   
+      timerOff = false;  //THIS TURNS OFF THE WHOLE QUIZ 
+      timerOn = true;   
+
+      document.getElementById("timerOff").hidden = false;
+      document.getElementById("timerOn").hidden = true;
     }
 
 
@@ -37,8 +39,19 @@ function countdown() {
 
 
 
+getStarted.addEventListener("click", function(event) {
+  var element = event.target;
 
-countdown();
+  if (element.matches(".startBtn")) {
+    console.log("hello")
+    document.getElementById("IDgetstarted").hidden = true;
+    countdown();
+
+  }
+  
+});
+
+
 
 
 
