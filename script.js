@@ -1,21 +1,79 @@
 // declaring the variables needed 
 var timerEl = document.getElementById('countdown');
-var getStarted = document.querySelector(".getStarted")
-var timerOn = document.getElementById("timerOn").hidden = true; // Setting initial visibility values for the quiz blocks
-var timerOff = document.getElementById("timerOff").hidden = true;
+var getStarted = document.querySelector(".getStarted");
+var timerOn = document.getElementById("timerOn");
+var timerOff = document.getElementById("timerOff");
+
+var questionOne = document.getElementById("question1");
+var questionTwo = document.getElementById("question2");
+var questionThree = document.getElementById("question3");
+var questionFour = document.getElementById("question4");
+var questionFive = document.getElementById("question5");
+
+var quizQuestion = document.querySelector(".question1");
+var quizQuestion = document.querySelector(".question2");
+var quizQuestion = document.querySelector(".question3");
+var quizQuestion = document.querySelector(".question4");
+var quizQuestion = document.querySelector(".question5");
+
+// intial visibility setup
+timerOn.hidden = true;
+timerOff.hidden = true;
+getStarted.hidden = false;
 
 function startQuiz() {
-  document.getElementById("IDgetstarted").hidden = true; // hides the button section 
-  document.getElementById("timerOn").hidden = false; // shows the quiz section
+  getStarted.hidden = true;
+  timerOn.hidden = false;
+  timerOff.hidden = true;
+
+  questionOne.hidden = false;
+  questionTwo.hidden = true;
+  questionThree.hidden = true;
+  questionFour.hidden = true;
+  questionFive.hidden = true;
+
+  question1.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
+      questionOne.hidden = true;
+      questionTwo.hidden = false;
+    }
+  });
+  question2.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
+      questionTwo.hidden = true;
+      questionThree.hidden = false;
+    }
+  });
+  question3.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
+      questionThree.hidden = true;
+      questionFour.hidden = false;
+    }
+  });
+  question4.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
+      questionFour.hidden = true;
+      questionFive.hidden = false;
+    }
+  });
 }
 
 function endQuiz(){
-  document.getElementById("timerOff").hidden = false; // shows the Out of Time message
-  document.getElementById("timerOn").hidden = true; // hides the quiz
+  getStarted.hidden = true;
+  timerOn.hidden = true;
+  timerOff.hidden = false;
 }
 
 function countdown() {
-  var timeLeft = 2;
+  var timeLeft = 10;
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
