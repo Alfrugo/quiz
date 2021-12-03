@@ -10,19 +10,21 @@ var questionThree = document.getElementById("question3");
 var questionFour = document.getElementById("question4");
 var questionFive = document.getElementById("question5");
 
-var score = 0;
+var quizQuestion = document.querySelector(".question1");
+var quizQuestion = document.querySelector(".question2");
+var quizQuestion = document.querySelector(".question3");
+var quizQuestion = document.querySelector(".question4");
+var quizQuestion = document.querySelector(".question5");
 
 // intial visibility setup
 timerOn.hidden = true;
 timerOff.hidden = true;
 getStarted.hidden = false;
-result.hidden = true;
 
 function startQuiz() {
   getStarted.hidden = true;
   timerOn.hidden = false;
   timerOff.hidden = true;
-  result.hidden = false;
 
   questionOne.hidden = false;
   questionTwo.hidden = true;
@@ -39,98 +41,36 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
-        score = score++;
       }
       else {
         console.log("incorrect")
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Incorrect!"
       }
       questionOne.hidden = true;
       questionTwo.hidden = false;
     }
   });
-
   question2.addEventListener("click", function(event) {
     var element = event.target;
-    
-    if (element.matches(".quizQuestion")) { 
-      var answer = element.getAttribute("data-answer");
-      if (answer == "correct"){
-        console.log("correct");
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Correct!"
-      }
-      else {
-        console.log("incorrect")
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Incorrect!"
-      }
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
       questionTwo.hidden = true;
       questionThree.hidden = false;
     }
   });
-
   question3.addEventListener("click", function(event) {
     var element = event.target;
-    
-    if (element.matches(".quizQuestion")) { 
-      var answer = element.getAttribute("data-answer");
-      if (answer == "correct"){
-        console.log("correct");
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Correct!"
-      }
-      else {
-        console.log("incorrect")
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Incorrect!"
-      }
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
       questionThree.hidden = true;
       questionFour.hidden = false;
     }
   });
-
   question4.addEventListener("click", function(event) {
     var element = event.target;
-    
-    if (element.matches(".quizQuestion")) { 
-      var answer = element.getAttribute("data-answer");
-      if (answer == "correct"){
-        console.log("correct");
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Correct!"
-      }
-      else {
-        console.log("incorrect")
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Incorrect!"
-      }
+    if (element.matches(".quizQuestion")) { //checks if we are clicking on the start button
+      // console.log("hello")
       questionFour.hidden = true;
       questionFive.hidden = false;
-    }
-  });
-
-  question5.addEventListener("click", function(event) {
-    var element = event.target;
-    
-    if (element.matches(".quizQuestion")) { 
-      var answer = element.getAttribute("data-answer");
-      if (answer == "correct"){
-        console.log("correct");
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Correct!"
-      }
-      else {
-        console.log("incorrect")
-        var resultQuestion = document.querySelector("#result");
-        resultQuestion.textContent = "Incorrect!"
-      }
-      questionFive.hidden = true;
-      resultQuestion.hidden = true;
-      console.log(score);
-      timerOn.hidden = true;
-      timerEl.hidden = true;
     }
   });
 }
@@ -138,8 +78,7 @@ function startQuiz() {
 function endQuiz(){
   getStarted.hidden = true;
   timerOn.hidden = true;
-  //timerOff.hidden = false;
-  result.hidden = true;
+  timerOff.hidden = false;
 }
 
 function countdown() {
@@ -153,15 +92,15 @@ function countdown() {
       timerEl.textContent = timeLeft;
       // Decrement `timeLeft` by 1
       timeLeft--;
-    } 
-    else {
+    } else {
       // Once `timeLeft` gets to 0, set `timerEl` to an empty string
       timerEl.textContent = 'ZERO';
       // Use `clearInterval()` to stop the timer 
 
-      // Important  this is where the time out message for the quiz !!
+      // Important  this is where the time out messag for the quiz !!
       clearInterval(timeInterval);
-      endQuiz();     
+      endQuiz();
+      
     }
   }, 1000);
 }
