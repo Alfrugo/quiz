@@ -10,6 +10,8 @@ var questionThree = document.getElementById("question3");
 var questionFour = document.getElementById("question4");
 var questionFive = document.getElementById("question5");
 
+var quizCompleted = false;
+
 var score = 0;
 
 // intial visibility setup
@@ -29,6 +31,8 @@ function startQuiz() {
   questionThree.hidden = true;
   questionFour.hidden = true;
   questionFive.hidden = true;
+
+  let timeInterval;
 
   question1.addEventListener("click", function(event) {
     var element = event.target;
@@ -131,6 +135,7 @@ function startQuiz() {
       console.log(score);
       timerOn.hidden = true;
       timerEl.hidden = true;
+      quizCompleted = true;
     }
   });
 }
@@ -146,9 +151,13 @@ function countdown() {
   var timeLeft = 10;
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-  var timeInterval = setInterval(function () {
+  timeInterval = setInterval(function () {
     // As long as the `timeLeft` is greater than 1
-    if (timeLeft >= 1) {
+    
+    if (quizCompleted == true) {
+      clearInterval(timeInterval);
+    }
+    else if (timeLeft >= 1 && quizCompleted == false){
       // Set the `textContent` of `timerEl` to show the remaining seconds
       timerEl.textContent = timeLeft;
       // Decrement `timeLeft` by 1
@@ -157,6 +166,7 @@ function countdown() {
     else {
       // Once `timeLeft` gets to 0, set `timerEl` to an empty string
       timerEl.textContent = 'ZERO';
+      timerOff.hidden = false;
       // Use `clearInterval()` to stop the timer 
 
       // Important  this is where the time out message for the quiz !!
