@@ -3,12 +3,18 @@ var timerEl = document.getElementById('countdown');
 var getStarted = document.querySelector(".getStarted");
 var timerOn = document.getElementById("timerOn");
 var timerOff = document.getElementById("timerOff");
+var endResult = document.getElementById("endResult");
+var finalScore = document.getElementById("finalScore");
+var saveScore = document.querySelector("#saveScore");
+
 
 var questionOne = document.getElementById("question1");
 var questionTwo = document.getElementById("question2");
 var questionThree = document.getElementById("question3");
 var questionFour = document.getElementById("question4");
 var questionFive = document.getElementById("question5");
+
+var initialsInput = document.querySelector("#initials");
 
 var quizCompleted = false;
 
@@ -19,6 +25,7 @@ timerOn.hidden = true;
 timerOff.hidden = true;
 getStarted.hidden = false;
 result.hidden = true;
+endResult.hidden = true;
 
 function startQuiz() {
   getStarted.hidden = true;
@@ -43,7 +50,7 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
-        score = score++;
+        score = score + 1;
       }
       else {
         console.log("incorrect")
@@ -64,6 +71,7 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
+        score = score + 1;
       }
       else {
         console.log("incorrect")
@@ -84,6 +92,8 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
+        score = score + 1;
+
       }
       else {
         console.log("incorrect")
@@ -104,6 +114,8 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
+        score = score + 1;
+
       }
       else {
         console.log("incorrect")
@@ -124,6 +136,7 @@ function startQuiz() {
         console.log("correct");
         var resultQuestion = document.querySelector("#result");
         resultQuestion.textContent = "Correct!"
+        score = score + 1;
       }
       else {
         console.log("incorrect")
@@ -143,9 +156,10 @@ function startQuiz() {
 function endQuiz(){
   getStarted.hidden = true;
   timerOn.hidden = true;
-  //timerOff.hidden = false;
   result.hidden = true;
-}
+  endResult.hidden = false;
+  finalScore.textContent = score;
+    }
 
 function countdown() {
   var timeLeft = 10;
@@ -155,7 +169,9 @@ function countdown() {
     // As long as the `timeLeft` is greater than 1
     
     if (quizCompleted == true) {
-      clearInterval(timeInterval);
+      clearInterval(timeInterval);  // we stop the timer if we finish the quiz before time is up
+      endResult.hidden = false;
+      finalScore.textContent = score;
     }
     else if (timeLeft >= 1 && quizCompleted == false){
       // Set the `textContent` of `timerEl` to show the remaining seconds
@@ -185,6 +201,25 @@ getStarted.addEventListener("click", function(event) {
     countdown(); // starts the counter
   }
 });
+
+// the local thing needs to be in a function. 
+saveScore.addEventListener("click", function(event) {
+  event.preventDefault();
+  
+  // create user object from submission
+  var user = {
+    userInitials: initialsInput.value.trim(),
+    quizScore: score
+  };
+
+  // set new submission to local storage 
+  localStorage.setItem("user", JSON.stringify(user));
+  
+});
+
+
+
+
 
 
 
