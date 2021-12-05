@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-color: black;
+    background-color: rgb(238, 237, 237);
 }
 main {
     margin: auto;
@@ -10,7 +10,7 @@ main {
 }
 
 h1,h2,h3,h4,li,ul,p,div {
-    color: blanchedalmond;
+    color: rgb(45, 45, 45);
 }
 header {
     display: flex;
@@ -58,6 +58,26 @@ header h3 {
     line-height: 30px;
     color: whitesmoke;
 }
+
+.scoreButton {
+    display: inline-flex;
+    width: 150px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #743e01;
+    text-align: left;
+    font-size: 15px;
+    padding: 10px 10px 10px 30px;
+    line-height: 20px;
+    color: whitesmoke;
+}
+.scoreButton:hover{
+    background-color: #014074;
+}
+
 .quizQuestion:hover{
     background-color: #3904a2;
 }
@@ -67,5 +87,4 @@ header h3 {
     font-style: italic;
     font-size: 15px;
     color: burlywood;
-
 }
