@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Quiz</title>
 </head>
+
 <body>
     <header>
         <h3>View high scores</h3>
@@ -14,87 +16,87 @@
     </header>
     <main>
 
-    <section id="IDgetstarted" class="getStarted">
-        <h1>Click the button below to start</h1>
-        <div class="startBtn">Get Started</div>
-    </section>
-    <section id="timerOn">
-        <div id="question1" class="box">
-             <h1>Name The Biggest Island In The World?</h1>
-             <ol>
-                 <li class="quizQuestion" data-answer="correct">Greenland</li>
-                 <li class="quizQuestion" data-answer="incorrect">Poland</li>
-                 <li class="quizQuestion" data-answer="incorrect">California</li>
-                 <li class="quizQuestion" data-answer="incorrect">Canary Islands</li>
-             </ol>           
+        <section id="IDgetstarted" class="getStarted">
+            <h1>Click the button below to start</h1>
+            <div class="startBtn">Get Started</div>
+        </section>
+        <section id="timerOn">
+            <div id="question1" class="box">
+                <h1>Name The Biggest Island In The World?</h1>
+                <ol>
+                    <li class="quizQuestion" data-answer="correct">Greenland</li>
+                    <li class="quizQuestion" data-answer="incorrect">Poland</li>
+                    <li class="quizQuestion" data-answer="incorrect">California</li>
+                    <li class="quizQuestion" data-answer="incorrect">Canary Islands</li>
+                </ol>
+            </div>
+
+            <div id="question2" class="box">
+                <h1>Which Country Produces The Most Coffee In The World?</h1>
+                <ol>
+                    <li class="quizQuestion" data-answer="correct">Brazil</li>
+                    <li class="quizQuestion" data-answer="incorrect">Spain</li>
+                    <li class="quizQuestion" data-answer="incorrect">Oklahoma</li>
+                    <li class="quizQuestion" data-answer="incorrect">Vatican</li>
+                </ol>
+            </div>
+
+            <div id="question3" class="box">
+                <h1>How Many Grammys Does John Legend Have?</h1>
+                <ol>
+                    <li class="quizQuestion" data-answer="correct">Eleven</li>
+                    <li class="quizQuestion" data-answer="incorrect">Eleven and a half</li>
+                    <li class="quizQuestion" data-answer="incorrect">Almost Eleven</li>
+                    <li class="quizQuestion" data-answer="incorrect">None</li>
+                </ol>
+            </div>
+
+            <div id="question4" class="box">
+                <h1>What Nut Is Used To Make Marzipan?</h1>
+                <ol>
+                    <li class="quizQuestion" data-answer="correct">Almonds</li>
+                    <li class="quizQuestion" data-answer="incorrect">Carrots</li>
+                    <li class="quizQuestion" data-answer="incorrect">Wheat</li>
+                    <li class="quizQuestion" data-answer="incorrect">Beef</li>
+                </ol>
+            </div>
+
+            <div id="question5" class="box">
+                <h1>What Is The Brightest Star In The Sky?</h1>
+                <ol>
+                    <li class="quizQuestion" data-answer="correct">Sirius</li>
+                    <li class="quizQuestion" data-answer="incorrect">Siriously</li>
+                    <li class="quizQuestion" data-answer="incorrect">Sun</li>
+                    <li class="quizQuestion" data-answer="incorrect">Her smile</li>
+                </ol>
+            </div>
+        </section>
+
+        <h2 id="result"></h2>
+
+        <div id="timerOff" class="box">
+            <h1>Time's up!</h1>
         </div>
-
-        <div id="question2" class="box">
-            <h1>Which Country Produces The Most Coffee In The World?</h1>
-            <ol>
-                <li class="quizQuestion" data-answer="correct">Brazil</li>
-                <li class="quizQuestion" data-answer="incorrect">Spain</li>
-                <li class="quizQuestion" data-answer="incorrect">Oklahoma</li>
-                <li class="quizQuestion" data-answer="incorrect">Vatican</li>
-            </ol>
-        </div>
-
-        <div id="question3" class="box">
-            <h1>How Many Grammys Does John Legend Have?</h1>
-            <ol>
-                <li class="quizQuestion" data-answer="correct">Eleven</li>
-                <li class="quizQuestion" data-answer="incorrect">Eleven and a half</li>
-                <li class="quizQuestion" data-answer="incorrect">Almost Eleven</li>
-                <li class="quizQuestion" data-answer="incorrect">None</li>
-            </ol>
-        </div>
-
-        <div id="question4" class="box">
-            <h1>What Nut Is Used To Make Marzipan?</h1>
-            <ol>
-                <li class="quizQuestion" data-answer="correct">Almonds</li>
-                <li class="quizQuestion" data-answer="incorrect">Carrots</li>
-                <li class="quizQuestion" data-answer="incorrect">Wheat</li>
-                <li class="quizQuestion" data-answer="incorrect">Beef</li>
-            </ol>
-        </div>
-
-        <div id="question5" class="box">
-            <h1>What Is The Brightest Star In The Sky?</h1>
-            <ol>
-                <li class="quizQuestion" data-answer="correct">Sirius</li>
-                <li class="quizQuestion" data-answer="incorrect">Siriously</li>
-                <li class="quizQuestion" data-answer="incorrect">Sun</li>
-                <li class="quizQuestion" data-answer="incorrect">Her smile</li>
-            </ol>
-        </div>
-    </section>
-
-    <h2 id="result"></h2>
-
-    <div id="timerOff" class="box">
-        <h1>Time's up!</h1>
-    </div>
-    <section id="endResult">
-        <h1>All done!</h1>
-        <p>Your final score is <span id="finalScore"></span> </p>
-        <form method="post">
-         <div class="input-group">
-              <label for="initials">Your Initials</label>
-             <input type="text" name="initials" id="initials" />
-              <button id="saveScore">Save score</button>
-         </div>
-        </form> 
-    </section>
-    <section id="highScores">
+        <section id="endResult">
+            <h1>All done!</h1>
+            <p>Your final score is <span id="finalScore"></span> </p>
+            <form method="post">
+                <div class="input-group">
+                    <label for="initials">Your Initials</label>
+                    <input type="text" name="initials" id="initials" />
+                    <button id="saveScore">Save score</button>
+                </div>
+            </form>
+        </section>
+        <section id="highScores">
             <h3>High Scores</h3>
             <p id="savedData"> </p>
             <div id="goBack" class="scoreButton">Go back</div>
             <div id="clearScore" class="scoreButton"> Clear score </div>
+        </section>
 
-    </section>
-
-<script src="script.js"></script>
-</main>
+        <script src="script.js"></script>
+    </main>
 </body>
+
 </html>
