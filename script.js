@@ -27,7 +27,7 @@ let timeInterval;
 var answer;
 var element;
 
-
+var hasEventListeners = false;
 
 // intial visibility setup
 timerOn.hidden = true;
@@ -190,7 +190,7 @@ function startQuiz() {
     }
    
   });
-  return;
+  hasEventListeners = true;
 }
 
 function endQuiz(){
